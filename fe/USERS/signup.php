@@ -10,7 +10,7 @@ $Pass = password_hash($Password,PASSWORD_BCRYPT);
 if (!empty($Name) || !empty($Email) || !empty($Password))
 { $host = "localhost";
   $dbusername = "root";
-  $dbpassword = "root";
+  $dbpassword = "";
   $dbname = "admin101";
 
   $conn = new mysqli($host,$dbusername,$dbpassword,$dbname);
@@ -37,10 +37,10 @@ if (!empty($Name) || !empty($Email) || !empty($Password))
     $stmt->bind_param("sss",$Name,$Email,$Pass);
 
     $stmt->execute();
-    $_SESSION["Email"]=$Email;
+    $_SESSION["user"]=$Email;
 
 
-      header("Location:events.html");
+      header("Location:events.php");
 }
   else {
 
