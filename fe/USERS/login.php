@@ -1,7 +1,7 @@
 
 <?php
 session_start();
-$con = new mysqli("localhost","root","root","admin101");
+$con = new mysqli("localhost","root","","admin101");
 if (isset($_POST['button'])){
 
 $Email = $_POST['Email'];
@@ -21,9 +21,9 @@ $email_count = mysqli_num_rows($query);
       $db_pass = $email_pass['Password'];
       $pass_decode = password_verify($Password, $db_pass);
       if($pass_decode)
-  {       $_SESSION["Email"]=$Email;
+  {       $_SESSION["user"]=$Email;
     echo "<h2>LOGIN SUCCESSS</h2>";
-       header("Location:events.html");
+       header("Location:events.php");
 
 
        }
